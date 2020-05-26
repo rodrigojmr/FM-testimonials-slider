@@ -1,0 +1,209 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%; // 10px/16 = 62.5%
+    background-color: rgb(231, 231, 231);
+}
+
+@font-face {
+    font-family: "Inter";
+    src: url(/vendor/Inter-VariableFont_slnt\,wght.ttf);
+}
+
+body {
+    font-family: "Inter";
+}
+
+.container {
+    width: 80%;
+    margin: 10rem auto;
+    background-color: #fff;
+}
+
+.testimonials {
+    box-shadow: 2px 5px 10px rgba($color: #000000, $alpha: 0.3);
+    position: relative;
+    overflow: hidden;
+    height: 41vw;
+    width: 80vw;
+    background-image: url(images/pattern-curve.svg),
+    url(images/pattern-quotes.svg),
+    url(images/pattern-bg.svg);
+    background-repeat: no-repeat,
+        no-repeat,
+        no-repeat;
+    background-position: bottom left,
+        20% 35%,
+        90% 50%;
+    background-size: 40%, 8%, 45%;
+
+    @media only screen and (max-width: 50em) {
+        height: 113vw;
+        flex-direction: column;
+        
+        background-position: bottom left,
+                                20% 35%,
+                                90% 28%;
+        background-size: 40%, 8%, 60%;
+    }
+}
+
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-items: center;
+    padding: 7% 8% 5% 10%;
+
+    opacity: 1;
+    transition: all .4s ease-out;
+
+    @media only screen and (max-width: 50em) {
+        flex-direction: column;
+    }
+
+    &__details {
+        flex: 0 0 50%;
+        @media only screen and (max-width: 50em) {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+    }
+
+    &__quote {
+        font-size: 1.4vw;
+        font-weight: 300;
+        width: 110%;
+        line-height: 1.5;
+        margin-bottom: 2rem;
+
+        @media only screen and (max-width: 75em) {
+            font-size: 1.6vw;
+        }
+
+        @media only screen and (max-width: 50em) {
+            font-size: 3.2vw;
+            width: 100%;
+        }
+
+    }
+
+    &__author {
+        font-size: 1.4rem;
+        font-weight: 700;
+        margin-right: .5rem;
+
+        @media only screen and (max-width: 75em) {
+            font-size: 1.4vw;
+        }
+
+        @media only screen and (max-width: 50em) {
+            font-size: 2.5vw;
+            margin-bottom: .5rem;
+        }
+    }
+
+    &__job {
+        font-size: 1.4rem;
+        font-weight: 600;
+        color: rgb(187, 187, 187);
+
+        @media only screen and (max-width: 75em) {
+            font-size: 1.4vw;
+        }
+
+        @media only screen and (max-width: 50em) {
+            font-size: 2.5vw;
+        }
+    }
+
+    &__img {
+        flex: 0 0 50%;
+        display: flex;
+        flex-direction: column;
+
+        @media only screen and (max-width: 50em) {
+            align-items: center;
+            margin-bottom: 4vw;
+            margin-top: 3vw;
+        }
+
+        img {
+            width: 85%;
+            box-shadow: 0 2rem 4rem rgba($color: #000000, $alpha: .3);
+
+            @media only screen and (max-width: 50em) {
+                width: 80%;
+            }
+        }
+    }
+
+    &__btn {
+        display: flex;
+        align-items: center;
+        border-radius: 2rem;
+        transform: translateY(-50%);
+        z-index: 1;
+        margin-left: 2rem;
+
+        @media only screen and (max-width: 50em) {
+            margin-left: 0;
+        }
+    }
+
+    &__arrow {
+        display: flex;
+        justify-content: center;
+        padding: 1.5rem;
+        background-color: #fff;
+
+        @media only screen and (max-width: 50em) {
+            padding: 2.8vw;
+        }
+
+        &:hover img {
+            transform: scale(1.2);
+        }
+
+
+        &--prev {
+            border-radius: 50% 0 0 50%;
+        }
+        &--next {
+            border-radius: 0 50% 50% 0;
+        }
+
+        img {
+            height: 1.2rem;
+            width: 1.2rem;
+            transition: all .2s;
+
+            @media only screen and (max-width: 50em) {
+                width: 2vw;
+                height: 2vw;
+            }
+    
+        }
+    }
+}
+
+.hidden {
+    transform: translateY(100%);
+    opacity: 0;
+    transition: opacity .4s ease-out, transform .8s ease-in;
+}
